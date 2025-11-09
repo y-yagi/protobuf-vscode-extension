@@ -1,0 +1,161 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Protocol Buffers",
+  "scopeName": "source.proto",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#storage-types"
+    },
+    {
+      "include": "#entity-names"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#operators"
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.proto",
+          "match": "\\b(syntax|package|import|public|weak)\\b"
+        },
+        {
+          "name": "keyword.declaration.proto",
+          "match": "\\b(message|enum|service|rpc|returns|stream)\\b"
+        },
+        {
+          "name": "keyword.modifier.proto",
+          "match": "\\b(optional|required|repeated)\\b"
+        },
+        {
+          "name": "keyword.other.proto",
+          "match": "\\b(reserved|extensions|extend|option|oneof|map|to|max)\\b"
+        },
+        {
+          "name": "constant.language.proto",
+          "match": "\\b(true|false)\\b"
+        }
+      ]
+    },
+    "storage-types": {
+      "patterns": [
+        {
+          "name": "storage.type.numeric.proto",
+          "match": "\\b(double|float|int32|int64|uint32|uint64|sint32|sint64|fixed32|fixed64|sfixed32|sfixed64)\\b"
+        },
+        {
+          "name": "storage.type.other.proto",
+          "match": "\\b(bool|string|bytes)\\b"
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.proto",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.proto",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.proto",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.proto",
+              "match": "\\\\(x[0-9A-Fa-f]{2}|[0-7]{3}|[abfnrtv\\\\'\"])"
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.proto",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.proto",
+              "match": "\\\\(x[0-9A-Fa-f]{2}|[0-7]{3}|[abfnrtv\\\\'\"])"
+            }
+          ]
+        }
+      ]
+    },
+    "entity-names": {
+      "patterns": [
+        {
+          "name": "entity.name.type.message.proto",
+          "match": "(?<=message\\s+)[A-Z][a-zA-Z0-9_]*"
+        },
+        {
+          "name": "entity.name.type.enum.proto",
+          "match": "(?<=enum\\s+)[A-Z][a-zA-Z0-9_]*"
+        },
+        {
+          "name": "entity.name.type.service.proto",
+          "match": "(?<=service\\s+)[A-Z][a-zA-Z0-9_]*"
+        },
+        {
+          "name": "entity.name.function.proto",
+          "match": "(?<=rpc\\s+)[A-Z][a-zA-Z0-9_]*"
+        },
+        {
+          "name": "entity.name.type.proto",
+          "match": "\\b[A-Z][a-zA-Z0-9_]*\\b"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.decimal.proto",
+          "match": "\\b([0-9]+\\.?[0-9]*([eE][+-]?[0-9]+)?|\\.[0-9]+([eE][+-]?[0-9]+)?)\\b"
+        },
+        {
+          "name": "constant.numeric.hex.proto",
+          "match": "\\b0[xX][0-9a-fA-F]+\\b"
+        },
+        {
+          "name": "constant.numeric.octal.proto",
+          "match": "\\b0[0-7]+\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.assignment.proto",
+          "match": "="
+        },
+        {
+          "name": "punctuation.separator.proto",
+          "match": "[;,.]"
+        },
+        {
+          "name": "punctuation.brackets.proto",
+          "match": "[\\[\\]{}()<>]"
+        }
+      ]
+    }
+  }
+}
