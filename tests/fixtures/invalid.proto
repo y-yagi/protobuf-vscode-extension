@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+// This file intentionally contains errors for testing diagnostics
+
+message BadMessage {
+  string field1 = 1
+  // Missing semicolon above
+
+  int32 field2 = 1;  // Duplicate field number
+
+  UndefinedType field3 = 3;  // Undefined type
+}
